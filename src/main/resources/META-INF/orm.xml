@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd"
+    version="2.2">
+    <!-- Metodo de externalizar requisições Query-->
+    <named-query name="Restaurante.consultarPorNomeId">
+    	<query>
+    	from Restaurante 
+    	where nome like concat('%', :nome, '%') 
+    	<!--É preciso usar o concat se não o % não é acieto-->
+    	and cozinha.id = :id
+    	</query>
+    </named-query>
+
+</entity-mappings>
